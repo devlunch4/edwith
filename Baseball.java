@@ -66,7 +66,7 @@ public class Baseball {
 		// 코딩시작
 		// 랜덤수 추출각 자리로 지정하여 추출한다
 		// 백/십/일의 자리 수 추출 그리고 중복 되지 않도록
-
+/*
 		Scanner sc = new Scanner(System.in);
 
 		int x = 0; // 백의자리
@@ -146,7 +146,73 @@ public class Baseball {
 		//do문 종료 및 최종 출력 
 		System.out.println("축하합니다." + count + " 번 만에 맞추셨습니다");
 		System.out.println("정답 : " + com);
+*/
 		
-				
+		
+		
+		
+		//////////////////////
+		//	강사 코드
+		//	랜덤 숫자 부분 (do while 과 if 를 사용)
+		
+		
+		//숫자야구 게임을 만들어주세요.
+		 
+		int a1 = (int) (Math.random() * 9) + 1;
+		int a2;
+		int a3;
+
+		do {
+			a2 = (int) (Math.random() * 9) + 1;
+		} while (a1 == a2);
+
+		do {
+			a3 = (int) (Math.random() * 9) + 1;
+		} while (a1 == a3 || a2 == a3);
+
+		System.out.println("정해진 랜덤 값 : " + a1 + a2 + a3);
+
+		Scanner s = new Scanner(System.in);
+		int count = 0;
+		while (true) {
+			// 강사코드; input으로 3자리 숫자를 한번에 입력 받음
+			System.out.println("3자리의 숫자>");
+			int input = Integer.parseInt(s.nextLine());
+
+			int i3 = input % 10; // 1의자리
+			input /= 10;
+			int i2 = input % 10; // 10의자리
+			input /= 10;
+			int i1 = input % 10; // 100의자리
+
+			int strike = 0;
+			int ball = 0;
+			int out = 0;
+
+			if (a1 == i1)
+				strike++;
+			if (a2 == i2)
+				strike++;
+			if (a3 == i3)
+				strike++;
+
+			if (a1 == i2 || a1 == i3)
+				ball++;
+			if (a2 == i1 || a2 == i3)
+				ball++;
+			if (a3 == i1 || a3 == i2)
+				ball++;
+
+			out = 3 - strike - ball;
+
+			System.out.println(++count + "차 시도(" + i1 + i2 + i3 + ") : "
+					+ strike + "S " + ball + "B " + out + "O");
+			System.out.println("----------------------------");
+			if (strike == 3) {
+				System.out.println("정답입니다!!");
+				break;
+			}
+		}
+		
 	}
 }
