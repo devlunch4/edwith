@@ -170,7 +170,7 @@ public class Baseball {
 			a3 = (int) (Math.random() * 9) + 1;
 		} while (a1 == a3 || a2 == a3);
 
-		System.out.println("정해진 랜덤 값 : " + a1 + a2 + a3);
+		System.out.println("**확인용 정해진 랜덤 값 : " + a1 + a2 + a3);
 
 		Scanner s = new Scanner(System.in);
 		int count = 0;
@@ -178,7 +178,8 @@ public class Baseball {
 			// 강사코드; input으로 3자리 숫자를 한번에 입력 받음
 			System.out.println("3자리의 숫자>");
 			int input = Integer.parseInt(s.nextLine());
-
+			
+			// 강사코드; 입력 받은 값을 자리수에 따라 각 분리
 			int i3 = input % 10; // 1의자리
 			input /= 10;
 			int i2 = input % 10; // 10의자리
@@ -188,7 +189,8 @@ public class Baseball {
 			int strike = 0;
 			int ball = 0;
 			int out = 0;
-
+			
+			// 랜덤 값과 입력 값 판정 시작 
 			if (a1 == i1)
 				strike++;
 			if (a2 == i2)
@@ -209,8 +211,11 @@ public class Baseball {
 					+ strike + "S " + ball + "B " + out + "O");
 			System.out.println("----------------------------");
 			if (strike == 3) {
+				// 모두 맞춘 경우 정답 문장 출력
 				System.out.println("정답입니다!!");
-				break;
+				break; // break가 꼭 필요!!! 
+					//	없다면 count는 누적되며
+					//	맞추어도 지정된 랜덤 숫자는 그대로
 			}
 		}
 		
