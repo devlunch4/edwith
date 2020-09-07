@@ -1,5 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <ctype.h>
 #include <string.h>
 
 int main(void)
@@ -8,14 +9,7 @@ int main(void)
     printf("After:  ");
     for (int i = 0, n = strlen(s); i < n; i++)
     {
-        if (s[i] >= 'a' && s[i]<= 'z')
-        {
-            printf("%c", s[i] -32);
+          printf("%c", toupper(s[i]));
         }
-        else
-        {
-            printf("%c", s[i]);
-        }
-    }
-            printf("\n");
+    printf("\n");
 }
